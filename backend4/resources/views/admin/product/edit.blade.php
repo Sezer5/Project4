@@ -63,7 +63,7 @@
                                         <label for="" class="form-label">Sizes</label>
                                         <select multiple class="form-select form-select-sm" name="size_id[]">
                                             @foreach ($sizes as $size)
-                                                <option value="{{ $color->id }}"
+                                                <option value="{{ $size->id }}"
                                                     @if ($product->sizes->contains($size->id)) selected @endif>{{ $size->name }}
                                                 </option>
                                             @endforeach

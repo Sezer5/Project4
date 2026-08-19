@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 m-2">
+  <div class="col-md-4 m-2">
     <div class="card product-card border-0 rounded-4 shadow-lg">
       <div class="position-relative">
         <div class="overflow-hidden">
@@ -41,9 +41,12 @@
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <span class="price">$ {{ product.price }}</span>
-          <button class="btn btn-success text-white px-4 py-2 rounded-pill">
+          <router-link
+            class="btn btn-success text-white px-4 py-2 rounded-pill"
+            :to="`/productDetail/` + product.slug"
+          >
             View More
-          </button>
+          </router-link>
         </div>
       </div>
     </div>

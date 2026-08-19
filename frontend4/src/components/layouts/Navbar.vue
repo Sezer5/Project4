@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <router-link class="navbar-brand" to="/">Navbar</router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -20,7 +20,11 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link active" href="#"
+                ><i class="bi bi-cart-plus"></i> Cart ({{
+                  cartStore.cartItems.length
+                }})</a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -51,8 +55,13 @@
               type="search"
               placeholder="Search"
               aria-label="Search"
+              v-model="data.term"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button
+              class="btn btn-outline-success"
+              type="button"
+              @click="productStore.fetchProductsByTerm(data.term)"
+            >
               Search
             </button>
           </form>
@@ -63,6 +72,17 @@
 </template>
 
 <script setup>
+import { useCartStore } from "@/stores/useCartStore";
+import { useProductStore } from "@/stores/useProductStore";
+import { reactive } from "vue";
+
+const productStore = useProductStore();
+
+const cartStore = useCartStore();
+
+const data = reactive({
+  term: null,
+});
 </script>
 
 <style scoped>

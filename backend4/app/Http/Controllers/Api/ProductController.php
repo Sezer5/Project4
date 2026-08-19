@@ -44,7 +44,7 @@ class ProductController extends Controller
     public function getProductsByTerm($term)
     {
         return ProductResource::collection(
-            Product::where('name', '%' . $term . '%')->with(['colors', 'sizes'])->latest()->get()
+            Product::where('name', 'LIKE', '%' . $term . '%')->with(['colors', 'sizes'])->latest()->get()
         )->additional([
             'colors' => Color::has('products')->latest()->get(),
             'sizes' => Size::has('products')->latest()->get()
@@ -54,7 +54,7 @@ class ProductController extends Controller
     public function getProduct(Product $product)
     {
         return ProductResource::make(
-            $product->with(['colors', 'sizes'])
+            $product->load(['colors', 'sizes'])
         );
     }
 }
