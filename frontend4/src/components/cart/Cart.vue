@@ -53,7 +53,7 @@
         </tbody>
       </table>
     </div>
-    <div class="alert alert-info text-center">
+    <div class="alert alert-info text-center" v-else>
       <i class="bi bi-exclamation-triangle"></i> Empty Your Cart!
     </div>
   </div>
