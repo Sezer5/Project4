@@ -62,7 +62,7 @@ export const useCartStore = defineStore('cart', {
 
     deleteItemInCart(item){
         
-            this.cartItems.filter(product => product.product_id !== item.product_id);
+            this.cartItems=this.cartItems.filter(product => product.ref !== item.ref);
             toast.success(`Product deleted to your cart successfully`, {
                 timeout: 2000
             });

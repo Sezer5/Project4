@@ -20,10 +20,10 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#"
+              <router-link class="nav-link active" to="/cart"
                 ><i class="bi bi-cart-plus"></i> Cart ({{
                   cartStore.cartItems.length
-                }})</a
+                }})</router-link
               >
             </li>
             <li class="nav-item dropdown">

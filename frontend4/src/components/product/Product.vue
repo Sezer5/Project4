@@ -175,6 +175,7 @@
                           :disabled="!data.chosenColor || !data.chosenSize"
                           @click="
                             cartStore.addItemToCart({
+                              ref: makeUniqueId(10),
                               product_id: productStore.productDetail?.id,
                               slug: productStore.productDetail?.slug,
                               thumbnail: productStore.productDetail?.thumbnail,
@@ -214,7 +215,7 @@
 import { useProductStore } from "@/stores/useProductStore";
 import { onMounted, reactive } from "vue";
 import { useRoute } from "vue-router";
-import { BASE_URL } from "../helpers/config";
+import { BASE_URL, makeUniqueId } from "../helpers/config";
 import Spinner from "../layouts/Spinner.vue";
 import { useCartStore } from "@/stores/useCartStore";
 
